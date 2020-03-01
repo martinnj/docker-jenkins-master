@@ -1,2 +1,13 @@
-# docker-jenkins-master
+# Docker Jenkins Master
+
 Dockerized Jenkins master for home use.
+
+You can handbuild the image if you feel like, but the Jenkins pipeline file
+requires a little setup, the following environment variables must be available:
+
+- `$MAJOR_VERSION`
+- `$MINOR_VERSION`
+- `$BRANCH`
+- `$REGISTRY_URL`
+
+Or you can just replace them in-file.
