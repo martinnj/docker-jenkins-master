@@ -32,7 +32,3 @@ RUN /usr/local/bin/install-plugins.sh pyenv-pipeline
 
 # Docker image creation.
 RUN /usr/local/bin/install-plugins.sh docker-plugin docker-workflow
-
-# Attempt to set git credentials.
-RUN git config --global user.email "agent@jenkins.local" \
- && git config --global user.name "Jenkins Agent"

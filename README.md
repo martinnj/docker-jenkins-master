@@ -11,3 +11,9 @@ requires a little setup, the following environment variables must be available:
 - `$REGISTRY_URL`
 
 Or you can just replace them in-file.
+
+You will also need to set the git credentials for the Jenkins user in the
+container, something to the tune of:
+
+- `$ git config --global user.email "agent@jenkins.local"`
+- `$ git config --global user.name "Jenkins Agent"`
