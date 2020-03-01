@@ -1,14 +1,16 @@
 node ("docker") {
     VERSION_STRING="$MAJOR_VERSION.$MINOR_VERSION.$BUILD_NUMBER"
+    def image = null
     stage("Git Pull") {
         git credentialsId: 'github_pk', url: "git@github.com:martinnj/docker-jenkins-master.git", branch: '$BRANCH'
     }
     stage("Build") {
-        docker.build("jenkins-master:$VERSION_STRING")
+        image = docker.build("jenkins-master:$VERSION_STRING", "--no-cache .")
     }
     stage("Push") {
         docker.withRegistry("$REGISTRY_URL") {
-            docker.image("jenkins-master:$VERSION_STRING").push("latest")
+            image.push()
+            image.push("latest")
         }
     }
     stage("Tag") {
@@ -18,8 +20,6 @@ node ("docker") {
         }
     }
     stage("Clean") {
-        // It might be a good idea to remove the image from this machines
-        // Docker instance if it's not going to run here anyway.
         cleanWs()
     }
 }
