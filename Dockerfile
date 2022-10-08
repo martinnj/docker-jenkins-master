@@ -19,7 +19,8 @@ USER jenkins
 RUN jenkins-plugin-cli --plugins \
     cloudbees-folder \
     timestamper \
-    ws-cleanup
+    ws-cleanup \
+    dark-theme
 
 # SSH plugins.
 RUN jenkins-plugin-cli --plugins \
