@@ -16,19 +16,30 @@ RUN adduser jenkins docker
 USER jenkins
 
 # Utility plugins.
-RUN /usr/local/bin/install-plugins.sh cloudbees-folder timestamper ws-cleanup
+RUN jenkins-plugin-cli --plugins \
+    cloudbees-folder \
+    timestamper \
+    ws-cleanup
 
 # SSH plugins.
-RUN /usr/local/bin/install-plugins.sh ssh-agent
+RUN jenkins-plugin-cli --plugins \
+    ssh-agent
 
 # Versioning plugins.
-RUN /usr/local/bin/install-plugins.sh git
+RUN jenkins-plugin-cli --plugins \
+    git
 
 # Pipeline plugins.
-RUN /usr/local/bin/install-plugins.sh workflow-aggregator pipeline-stage-view blueocean
+RUN jenkins-plugin-cli --plugins \
+    workflow-aggregator \
+    pipeline-stage-view \
+    blueocean
 
 # Python plugins
-RUN /usr/local/bin/install-plugins.sh pyenv-pipeline
+RUN jenkins-plugin-cli --plugins \
+    pyenv-pipeline
 
 # Docker image creation.
-RUN /usr/local/bin/install-plugins.sh docker-plugin docker-workflow
+RUN jenkins-plugin-cli --plugins \
+    docker-plugin \
+    docker-workflow
