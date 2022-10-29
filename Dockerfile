@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:alpine
+FROM jenkins/jenkins:2.375-alpine
 
 # The first tasks are done as root.
 USER root
