@@ -36,7 +36,7 @@ RUN jenkins-plugin-cli --plugins \
     pipeline-stage-view \
     blueocean
 
-# Python plugins
+# Python plugins.
 RUN jenkins-plugin-cli --plugins \
     pyenv-pipeline
 
@@ -44,3 +44,9 @@ RUN jenkins-plugin-cli --plugins \
 RUN jenkins-plugin-cli --plugins \
     docker-plugin \
     docker-workflow
+
+# Unit-test/lint/reporting plugins.
+RUN jenkins-plugin-cli --plugins \
+    xunit \
+    cobertura \
+    warnings-ng
