@@ -18,9 +18,8 @@ USER jenkins
 # Utility plugins.
 RUN jenkins-plugin-cli --plugins \
     cloudbees-folder \
-    timestamper \
-    ws-cleanup \
-    dark-theme
+    dark-theme \
+    ws-cleanup
 
 # SSH plugins.
 RUN jenkins-plugin-cli --plugins \
@@ -32,9 +31,9 @@ RUN jenkins-plugin-cli --plugins \
 
 # Pipeline plugins.
 RUN jenkins-plugin-cli --plugins \
-    workflow-aggregator \
+    blueocean \
     pipeline-stage-view \
-    blueocean
+    workflow-aggregator
 
 # Python plugins.
 RUN jenkins-plugin-cli --plugins \
@@ -47,9 +46,9 @@ RUN jenkins-plugin-cli --plugins \
 
 # Unit-test/lint/reporting plugins.
 RUN jenkins-plugin-cli --plugins \
-    xunit \
-    cobertura \
-    warnings-ng
+    coverage \
+    warnings-ng \
+    xunit
 
 # Attempt to set the git config so we can push tags.
 RUN git config --global user.email "hello@martinnj.dk"
