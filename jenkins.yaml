@@ -13,3 +13,43 @@ jenkins:
   # Set the label for the root node.
   labelString: "docker"
   numExecutors: 1
+
+################################################################################
+###                                                                          ###
+###                             Connected Clouds                             ###
+###                                                                          ###
+################################################################################
+
+  clouds:
+  - docker:
+      containerCap: 1
+      dockerApi:
+        connectTimeout: 60
+        dockerHost:
+          uri: "unix:///var/run/docker.sock"
+        readTimeout: 60
+      name: "local-docker"
+      templates:
+      - connector: "attach"
+        dockerTemplateBase:
+          cpuPeriod: 0
+          cpuQuota: 0
+          image: "localhost:5000/jenkins-agent-python3:latest"
+        instanceCapStr: "1"
+        labelString: "python3"
+        name: "python3"
+        pullStrategy: PULL_ALWAYS
+        pullTimeout: 300
+        removeVolumes: true
+
+################################################################################
+###                                                                          ###
+###                          Environment  Variables                          ###
+###                                                                          ###
+################################################################################
+
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: "REGISTRY_URL"
+        value: "http://localhost:5000"

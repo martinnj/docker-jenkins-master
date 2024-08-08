@@ -104,11 +104,11 @@ RUN jenkins-plugin-cli --plugins \
 
 
 # Copy the JCasC configuration file into the container
-COPY jenkins.yaml /etc/clerk_jenkins/casc_configs/jenkins.yaml
+COPY jenkins.yaml /etc/martin_jenkins/casc_configs/jenkins.yaml
 
 
 # Set the environment variable to point to the JCasC configuration file
-ENV CASC_JENKINS_CONFIG=/etc/clerk_jenkins/casc_configs/jenkins.yaml
+ENV CASC_JENKINS_CONFIG=/etc/martin_jenkins/casc_configs/jenkins.yaml
 
 
 ################################################################################
