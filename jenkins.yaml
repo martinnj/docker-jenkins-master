@@ -1,0 +1,15 @@
+####################################################################################################
+###                                                                                              ###
+###                                 Native & CasC Jenkins Things                                 ###
+###                                                                                              ###
+####################################################################################################
+
+# NOTE: Not all plugins have native support from Jenkins CasC, so we need to use the `unclassified`
+#       block for those. See below.
+
+jenkins:
+
+
+  # Set the label for the root node.
+  labelString: "docker"
+  numExecutors: 1
