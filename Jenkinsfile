@@ -4,6 +4,9 @@ node ("docker") {
     stage("Git Pull") {
         git credentialsId: 'github_pk', url: "git@github.com:martinnj/docker-jenkins-master.git", branch: '$BRANCH'
     }
+    stage("Configure") {
+        sh "sed -i 's/###VERSION###/$VERSION_STRING/g' Dockerfile"
+    }
     stage("Build") {
         image = docker.build("jenkins-master:$VERSION_STRING", "--no-cache .")
     }

@@ -119,5 +119,10 @@ ENV CASC_JENKINS_CONFIG=/etc/martin_jenkins/casc_configs/jenkins.yaml
 
 
 # Attempt to set the git config so we can push tags.
-RUN git config --global user.email "hello@martinnj.dk"
+RUN git config --global user.email "oss@martinnj.dk"
 RUN git config --global user.name "Docker Jenkins"
+
+
+# Set appropriate labels.
+LABEL maintainer="oss@martinnj.dk"
+LABEL version="###VERSION###"
