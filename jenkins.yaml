@@ -41,6 +41,17 @@ jenkins:
         pullStrategy: PULL_ALWAYS
         pullTimeout: 300
         removeVolumes: true
+      - connector: "attach"
+        dockerTemplateBase:
+          cpuPeriod: 0
+          cpuQuota: 0
+          image: "localhost:5000/jenkins-agent-dotnet:latest"
+        instanceCapStr: "1"
+        labelString: "dotnet,dotnet10"
+        name: "dotnet"
+        pullStrategy: PULL_ALWAYS
+        pullTimeout: 300
+        removeVolumes: true
 
 ################################################################################
 ###                                                                          ###
