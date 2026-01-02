@@ -33,7 +33,7 @@ RUN apk update && apk add --update --no-cache curl git
 
 # Install and configure Docker.
 # gid here should match the gid of the hosts docker-group.
-RUN addgroup -g 998 docker
+RUN addgroup -g 989 docker
 RUN apk add --update --no-cache docker
 RUN adduser jenkins docker
 
